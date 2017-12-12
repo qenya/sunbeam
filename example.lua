@@ -1,14 +1,14 @@
 local sunbeam = require 'sunbeam'
 
-local Object = sunbeam{thing = 0}
+local Parent = sunbeam.Object{thing = 0}
 
-function Object:init()
+function Parent:init()
 	self.constant = "test"
 end
 
-local child = Object()
+local child = Parent()
 
 child.thing = 3
-print (Object.thing) -- 0
+print (Parent.thing) -- 0
 
 print (child.constant) -- "test"

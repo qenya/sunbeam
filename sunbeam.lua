@@ -1,9 +1,9 @@
-local prototype = {}
+local Object = {}
 
-function prototype:init()
+function Object:init()
 end
 
-function prototype:__call(o)
+function Object:__call(o)
 	o = o or {}
 	setmetatable(o, self)
 	self.__index = self
@@ -11,6 +11,8 @@ function prototype:__call(o)
 	return o
 end
 
-setmetatable(prototype, prototype)
+setmetatable(Object, Object)
 
-return prototype
+return {
+	Object = Object
+}
