@@ -3,12 +3,12 @@ local Object = {}
 function Object:init()
 end
 
-function Object:__call(o)
-	o = o or {}
-	setmetatable(o, self)
+function Object:__call(...)
+	local instance = {}
+	setmetatable(instance, self)
 	self.__index = self
-	o:init()
-	return o
+	instance:init(...)
+	return instance
 end
 
 setmetatable(Object, Object)
