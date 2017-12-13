@@ -14,3 +14,5 @@ Parent.thing = 5
 child.thing = child.thing + 2
 print (Parent.thing) -- 5
 print (child.thing) -- 7
+
+print (child.__prototype == Parent) -- true

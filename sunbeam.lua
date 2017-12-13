@@ -1,17 +1,24 @@
-local Object = {}
+local metatable = {}
 
-function Object:init()
+function metatable:__index(key)
+	if self.__prototype ~= self then
+		return self.__prototype[key]
+	end
 end
 
-function Object:__call(...)
+function metatable:__call(...)
 	local instance = {}
-	setmetatable(instance, self)
-	self.__index = self
+	setmetatable(instance, metatable)
+	instance.__prototype = self
 	instance:init(...)
 	return instance
 end
 
-setmetatable(Object, Object)
+local Object = {}
+Object.__prototype = Object
+Object.init = function() end
+
+setmetatable(Object, metatable)
 
 return {
 	Object = Object
