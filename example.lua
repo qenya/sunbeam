@@ -1,18 +1,18 @@
 local sunbeam = require 'sunbeam'
 
-local Parent = sunbeam.Object()
+local fruit = sunbeam.Object()
 
-function Parent:init(label)
-	self.label = label
+function fruit:init(color)
+	self.color = color
 end
 
-local child = Parent("test")
-print (Parent.label) -- nil
-print (child.label) -- "test"
+local tomato = fruit("red")
+print(fruit.color) -- nil
+print(tomato.color) -- "red"
 
-Parent.thing = 5
-child.thing = child.thing + 2
-print (Parent.thing) -- 5
-print (child.thing) -- 7
+fruit.sweetness = 7
+tomato.sweetness = tomato.sweetness - 5
+print(fruit.sweetness) -- 7
+print(tomato.sweetness) -- 2
 
-print (child.__prototype == Parent) -- true
+print(tomato.__prototype == fruit) -- true
