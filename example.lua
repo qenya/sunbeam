@@ -1,7 +1,7 @@
 local sunbeam = require 'sunbeam'
 
 local fruit = sunbeam()
-function fruit:__constructor(color)
+function fruit:constructor(color)
 	self.color = color
 end
 
@@ -14,7 +14,7 @@ tomato.sweetness = tomato.sweetness - 5
 print(fruit.sweetness) -- 7
 print(tomato.sweetness) -- 2
 
-print(tomato.__prototype == fruit) -- true
+print(tomato.prototype == fruit) -- true
 
 
 print(pcall(function()
@@ -22,7 +22,7 @@ print(pcall(function()
 end))
 
 --[[
-function tomato:__constructor(color)
+function tomato:constructor(color)
 	super(color) -- TODO: Decide syntax
 end
 local peartomato = tomato("yellow")
