@@ -14,12 +14,13 @@ function metatable:__call(...)
 	return instance
 end
 
-local Object = {}
-Object.__prototype = Object
-Object.init = function() end
 
-setmetatable(Object, metatable)
+function sunbeam(o)
+	o = o || {}
+	o.__prototype = o
+	o.init = function() end
+	setmetatable(o, metatable)
+	return o
+end
 
-return {
-	Object = Object
-}
+return sunbeam

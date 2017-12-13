@@ -1,7 +1,6 @@
 local sunbeam = require 'sunbeam'
 
-local fruit = sunbeam.Object()
-
+local fruit = sunbeam()
 function fruit:init(color)
 	self.color = color
 end
