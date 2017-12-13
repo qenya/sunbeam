@@ -17,9 +17,8 @@ print(tomato.sweetness) -- 2
 print(tomato.prototype == fruit) -- true
 
 
-print(pcall(function()
-	local peartomato = tomato("yellow") -- error: cannot instantiate an object with no constructor
-end))
+local peartomato = tomato("yellow")
+print(peartomato.color) -- yellow
 
 --[[
 function tomato:constructor(color)

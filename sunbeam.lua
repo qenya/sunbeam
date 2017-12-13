@@ -1,7 +1,7 @@
 local metatable = {}
 
 function metatable:__index(key)
-	if key == 'constructor' or key == 'prototype' then
+	if key == 'prototype' then
 		return nil
 	elseif self.prototype ~= self then
 		return self.prototype[key]
@@ -9,10 +9,6 @@ function metatable:__index(key)
 end
 
 function metatable:__call(...)
-	if self.constructor == nil then
-		error("cannot instantiate an object with no constructor")
-	end
-
 	local instance = {}
 	setmetatable(instance, metatable)
 	instance.prototype = self
@@ -25,6 +21,7 @@ function sunbeam()
 	local instance = {}
 	setmetatable(instance, metatable)
 	instance.prototype = instance
+	instance.constructor = function() end
 	return instance
 end
 
