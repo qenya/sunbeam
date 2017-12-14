@@ -1,3 +1,14 @@
+--
+-- sunbeam: Yet another Lua object model
+--
+-- Version 1.0.0
+--
+-- Copyright 2017 Timon Walshe-Grey <me@timon.red>
+--
+-- This library is free software; you can redistribute it and/or modify it
+-- under the terms of the MIT license. See LICENSE for details.
+--
+
 local symbols = {
 	prototype = {},
 	constructor = {},
