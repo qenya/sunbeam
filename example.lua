@@ -33,7 +33,7 @@ print(greenzebra.color) -- green
 
 -- But you can also call a superconstructor manually.
 function tomato:constructor(shape, color)
-	tomato.prototype.constructor(self, color)
+	self:super(color)
 	self.shape = shape
 end
 local cornseed = tomato("pearshaped", "yellow")

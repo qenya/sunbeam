@@ -1,6 +1,7 @@
 local symbols = {
 	prototype = {},
-	constructor = {}
+	constructor = {},
+	super = {}
 }
 
 function symbols.prototype:get()
@@ -29,6 +30,13 @@ function symbols.constructor:set(value)
 	else
 		error("an object's constructor must be callable")
 	end
+end
+
+function symbols.super:get()
+	return self.prototype.prototype.constructor
+end
+function symbols.super:set(value)
+	error("cannot reassign an object's superconstructor")
 end
 
 local metatable = {}
