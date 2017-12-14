@@ -54,17 +54,9 @@ end
 function metatable:__call(...)
 	local instance = {}
 	setmetatable(instance, metatable)
-	instance.prototype = self
+	instance.prototype = self or instance
 	instance:constructor(...)
 	return instance
 end
 
-local function sunbeam(...)
-	local instance = {}
-	setmetatable(instance, metatable)
-	instance.prototype = instance
-	instance:constructor(...)
-	return instance
-end
-
-return sunbeam
+return metatable.__call
