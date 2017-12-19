@@ -1,7 +1,7 @@
 --
 -- sunbeam: Yet another Lua object model
 --
--- Version 1.1.0-dev
+-- Version 1.1.0
 --
 -- Copyright 2017 Timon Walshe-Grey <me@timon.red>
 --
