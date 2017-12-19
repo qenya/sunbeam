@@ -31,9 +31,9 @@ local greenzebra = tomato("green")
 print(tomato.color) -- red
 print(greenzebra.color) -- green
 
--- But you can also call a superconstructor manually.
+-- But if you need to override the constructor, you can also call super().
 function tomato:constructor(shape, color)
-	self:super(color)
+	tomato.super(self, color)
 	self.shape = shape
 end
 local cornseed = tomato("pearshaped", "yellow")

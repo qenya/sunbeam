@@ -1,7 +1,7 @@
 --
 -- sunbeam: Yet another Lua object model
 --
--- Version 1.0.0
+-- Version 1.1.0-dev
 --
 -- Copyright 2017 Timon Walshe-Grey <me@timon.red>
 --
@@ -44,7 +44,16 @@ function symbols.constructor:set(value)
 end
 
 function symbols.super:get()
-	return self.prototype.prototype.constructor
+	local method_owner = self
+	return function(self, ...)
+		if method_owner == self then
+			print("warning: self:super(...) is deprecated")
+			print("       : use type.super(self, ...) instead")
+			return self.prototype.prototype.constructor(self, ...)
+		else
+			return method_owner.prototype.constructor(self, ...)
+		end
+	end
 end
 function symbols.super:set(value)
 	error("cannot reassign an object's superconstructor")
