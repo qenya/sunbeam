@@ -63,4 +63,4 @@ end
 local cornseed = tomato("pearshaped", "yellow")
 print(cornseed.shape) -- pearshaped
 print(cornseed.color) -- yellow
-```s
+```
